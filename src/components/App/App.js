@@ -21,13 +21,15 @@ class App extends Component {
     email: '',
     password: '',
     isLoggedIn: false,
-    user: null
+    user: null,
+    userGoals: []
   }
 
   componentDidMount() {
     if (localStorage.token) {
       this.setState({
-        isLoggedIn: true
+        isLoggedIn: true,
+        user: JSON.parse(localStorage.user)
       })
     } else {
       this.setState({
@@ -89,8 +91,7 @@ class App extends Component {
       .then(response => {
         console.log(response)
         const location = {
-          pathname: '/login',
-          state: { fromDashboard: true }
+          pathname: '/login'
         }
         this.props.history.replace(location)
       })
@@ -112,18 +113,15 @@ class App extends Component {
       .then(response => {
         console.log(response)
         window.localStorage.setItem('token', response.data.token)
-        window.localStorage.setItem('user', response.data.user)
+        window.localStorage.setItem('user', JSON.stringify(response.data.user))
         this.setState({
           isLoggedIn: true,
           user: response.data.user,
           email: '',
-          password: ''
+          password: '',
+          userGoals: response.data.userGoals
         })
-        const location = {
-          pathname: '/profile',
-          state: { fromDashboard: true }
-        }
-        this.props.history.replace(location)
+        this.props.history.push('/profile')
       })
       .catch(err => console.log(err))
   }
@@ -159,7 +157,7 @@ class App extends Component {
             <Route path='/profile'
               render={(props) => {
                 return (
-                  <Profile isLoggedIn={this.state.isLoggedIn} user={this.state.user} />
+                  <Profile isLoggedIn={this.state.isLoggedIn} user={this.state.user} userGoals={this.state.userGoals}/>
                 )
               }}
             />
