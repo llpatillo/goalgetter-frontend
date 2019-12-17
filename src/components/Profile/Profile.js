@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './Profile.css'
+import Goal from '../Goal/Goals.js'
 
 class Profile extends Component {
   render() {
@@ -13,6 +14,8 @@ class Profile extends Component {
     } else {
       return (
         <div>
+          Profile
+          <Goal />
         </div>
       )
     }

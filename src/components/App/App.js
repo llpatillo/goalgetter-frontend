@@ -11,6 +11,7 @@ import SignUpForm from '../SignUpForm/SignUpForm'
 import LogInForm from '../LogInForm/LogInForm'
 import LogOut from '../LogOut/LogOut'
 import Profile from '../Profile/Profile'
+import Goals from '../Goal/Goals'
 import './App.css'
 
 const databaseUrl = process.env.NODE_ENV === 'production' ? process.env.BACKEND_APP_URL : 'http://localhost:3000'
@@ -61,7 +62,8 @@ class App extends Component {
     this.setState({
       email: '',
       password: '',
-      isLoggedIn: false
+      isLoggedIn: false,
+      user: null
     })
     this.props.history.push('/login')
   }
@@ -81,7 +83,7 @@ class App extends Component {
     axios(
       {
         method: 'post',
-        url: `${databaseUrl}/api/users/signup`,
+        url: `${databaseUrl}/users/signup`,
         data: newUser
       })
       .then(response => {
@@ -104,12 +106,13 @@ class App extends Component {
     axios(
       {
         method: 'post',
-        url: `${databaseUrl}/api/users/login`,
+        url: `${databaseUrl}/users/login`,
         data: loginUser
       })
       .then(response => {
         console.log(response)
         window.localStorage.setItem('token', response.data.token)
+        window.localStorage.setItem('user', response.data.user)
         this.setState({
           isLoggedIn: true,
           user: response.data.user,
@@ -126,6 +129,7 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.state)
     return (
       <div>
         <NavBar isLoggedIn={this.state.isLoggedIn} user={this.state.user} />
