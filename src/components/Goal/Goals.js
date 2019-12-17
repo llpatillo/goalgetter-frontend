@@ -60,7 +60,17 @@ class Goals extends React.Component {
                     Category<br />
                     <input type="text" name="category" onChange={e => this.handleInput(e)}/><br/>
                     Completion date<br />
-                    <input type="text" name="completion_date" onChange={e => this.handleInput(e)}/><br/>
+                    {/* <input type="text" name="completion_date" onChange={e => this.handleInput(e)}/><br/> */}
+                    <div className='form-group'>
+                  <input
+                    type='date'
+                    placeholder='Date'
+                    name='date'
+                    className='form-control'
+                    value={this.state.date}
+                    onChange={e => this.handleInput(e)}
+                  />
+                </div>
                     Goal<br/>
                     <input type="text" name="goal" onChange={e => this.handleInput(e)}/><br/>
                     Status<br/>

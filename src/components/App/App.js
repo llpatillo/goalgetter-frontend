@@ -22,7 +22,8 @@ class App extends Component {
     password: '',
     isLoggedIn: false,
     user: null,
-    userGoals: []
+    userGoals: [],
+    userJournals: []
   }
 
   componentDidMount() {
@@ -119,7 +120,9 @@ class App extends Component {
           user: response.data.user,
           email: '',
           password: '',
-          userGoals: response.data.userGoals
+          userGoals: response.data.userGoals,
+          userJournals: response.data.userJournals
+
         })
         this.props.history.push('/profile')
       })
@@ -157,7 +160,7 @@ class App extends Component {
             <Route path='/profile'
               render={(props) => {
                 return (
-                  <Profile isLoggedIn={this.state.isLoggedIn} user={this.state.user} userGoals={this.state.userGoals}/>
+                  <Profile isLoggedIn={this.state.isLoggedIn} user={this.state.user} userGoals={this.state.userGoals} userJournals={this.state.userJournals}/>
                 )
               }}
             />
