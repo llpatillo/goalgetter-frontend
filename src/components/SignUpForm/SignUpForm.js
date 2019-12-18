@@ -8,7 +8,11 @@ class SignUpForm extends Component {
       <div>
         <h2>Sign Up</h2>
 
-        <form>
+        <form className="signup-form">
+        <div>
+            <label htmlFor='name'>Name</label>
+            <input type='text' name='name' onChange={this.props.handleInput} />
+          </div>
           <div>
             <label htmlFor='email'>Email</label>
             <input type='text' name='email' onChange={this.props.handleInput} />
@@ -17,6 +21,10 @@ class SignUpForm extends Component {
           <div>
             <label htmlFor='password'>Password</label>
             <input type='text' name='password' onChange={this.props.handleInput} />
+          </div>
+          <div>
+            <label htmlFor='profile-picture'>Profile Pic</label>
+            <input type='text' name='profile-picture' onChange={this.props.handleInput} />
           </div>
           <input value='Submit' type='submit' onClick={this.props.handleSignUp} />
         </form>

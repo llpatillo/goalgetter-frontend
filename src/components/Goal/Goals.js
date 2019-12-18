@@ -56,7 +56,7 @@ class Goals extends React.Component {
          {
             return (
                 <div >
-                    <form onSubmit={e => this.handleSubmit(e)}>
+                    <form className="goal-form" onSubmit={e => this.handleSubmit(e)}>
                     Category<br />
                     <input type="text" name="category" onChange={e => this.handleInput(e)}/><br/>
                     Completion date<br />

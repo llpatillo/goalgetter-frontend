@@ -8,7 +8,7 @@ class LogInForm extends Component {
       <div>
         <h2>Log In</h2>
 
-        <form>
+        <form className="login-form">
           <div>
             <label htmlFor='email'>Email</label>
             <input type='text' name='email' onChange={this.props.handleInput} />

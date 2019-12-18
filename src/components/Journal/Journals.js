@@ -56,7 +56,7 @@ class Journals extends React.Component {
          {
             return (
                 <div >
-                    <form onSubmit={e => this.handleSubmit(e)}>
+                    <form className="journal-form" onSubmit={e => this.handleSubmit(e)}>
                     Title<br />
                     <input type="text" name="title" onChange={e => this.handleInput(e)}/><br/>
                     Thoughts<br />
