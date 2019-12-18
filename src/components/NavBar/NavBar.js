@@ -13,14 +13,14 @@ class NavBar extends Component {
       }
 
     } else {
-      navBarItems.push(<NavItem key={3} href='/signup'>Sign Up</NavItem>)
-      navBarItems.push(<NavItem key={4} href='/login'>Log In</NavItem>)
+      navBarItems.push(<NavItem className='button' key={3} href='/signup'>Sign Up</NavItem>)
+      navBarItems.push(<NavItem className='button' key={4} href='/login'>Log In</NavItem>)
     }
     return (
-      <Navbar brand='Project 4 React Starter' className='nav' right>
+      <div className='nav'>
 
         {navBarItems}
-      </Navbar>
+      </div>
     )
   }
 }

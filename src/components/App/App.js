@@ -11,7 +11,10 @@ import SignUpForm from '../SignUpForm/SignUpForm'
 import LogInForm from '../LogInForm/LogInForm'
 import LogOut from '../LogOut/LogOut'
 import Profile from '../Profile/Profile'
-import Goals from '../Goal/Goals'
+import Goal from '../Goal/Goals.js'
+import Journal from '../Journal/Journals.js'
+import Home from '../Home/Home.js'
+
 import './App.css'
 
 const databaseUrl = process.env.NODE_ENV === 'production' ? process.env.BACKEND_APP_URL : 'http://localhost:3000'
@@ -133,9 +136,11 @@ class App extends Component {
     console.log(this.state)
     return (
       <div>
+        <h1>Goal Getter</h1>
+
         <NavBar isLoggedIn={this.state.isLoggedIn} user={this.state.user} />
         <div className='body'>
-          <Switch>
+          <Switch >
             <Route path='/signup'
               render={(props) => {
                 return (
@@ -164,6 +169,13 @@ class App extends Component {
                 )
               }}
             />
+            {/* <Route path='/'
+              render={(props) => {
+                return (
+                  <Home />
+                )
+              }}
+            /> */}
           </Switch>
         </div>
       </div>
