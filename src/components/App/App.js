@@ -18,7 +18,9 @@ import Home from '../Home/Home.js'
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const databaseUrl = process.env.NODE_ENV === 'production' ? process.env.BACKEND_APP_URL : 'http://localhost:3000'
+const databaseUrl = 'https://goalgetter-app.herokuapp.com'
+
+// const databaseUrl = process.env.NODE_ENV === 'production' ? process.env.BACKEND_APP_URL : 'http://localhost:3000'
 
 class App extends Component {
   state = {
