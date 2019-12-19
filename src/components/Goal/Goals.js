@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import '../App/App.css'
 
 
 const databaseUrl = "http://localhost:3000";
@@ -11,7 +12,11 @@ class Goals extends React.Component {
     };
 
     componentDidMount() {
-        this.getGoals();
+        if(localStorage.token) {
+            // this.getGoals();
+
+        }
+        
     }
 
     handleInput = (e) => {
@@ -55,7 +60,7 @@ class Goals extends React.Component {
         console.log(this.state);
          {
             return (
-                <div >
+                <div className="goal-div" >
                     <form className="goal-form" onSubmit={e => this.handleSubmit(e)}>
                     Category<br />
                     <input type="text" name="category" onChange={e => this.handleInput(e)}/><br/>

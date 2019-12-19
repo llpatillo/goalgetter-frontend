@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import '../App/App.css'
 
 
 const databaseUrl = "http://localhost:3000";
@@ -55,7 +56,7 @@ class Journals extends React.Component {
         console.log(this.state);
          {
             return (
-                <div >
+                <div className="journal-div">
                     <form className="journal-form" onSubmit={e => this.handleSubmit(e)}>
                     Title<br />
                     <input type="text" name="title" onChange={e => this.handleInput(e)}/><br/>

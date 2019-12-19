@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import { Navbar, NavItem } from 'react-materialize'
-import './NavBar.css'
+import './NavBar.css' 
+
+
+
 
 class NavBar extends Component {
 
@@ -17,12 +20,14 @@ class NavBar extends Component {
       navBarItems.push(<NavItem className='button' key={4} href='/login'>Log In</NavItem>)
     }
     return (
-      <div className='nav'>
+      <div className='nav' >
 
         {navBarItems}
       </div>
     )
+   
   }
+  
 }
 
 export default NavBar

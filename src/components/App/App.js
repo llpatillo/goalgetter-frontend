@@ -21,8 +21,10 @@ const databaseUrl = process.env.NODE_ENV === 'production' ? process.env.BACKEND_
 
 class App extends Component {
   state = {
+    name: '',
     email: '',
     password: '',
+    profile_pic_url: '',
     isLoggedIn: false,
     user: null,
     userGoals: [],
@@ -83,8 +85,10 @@ class App extends Component {
   handleSignUp = (e) => {
     e.preventDefault()
     let newUser = {
+      name: this.state.name,
       email: this.state.email,
-      password: this.state.password
+      password: this.state.password,
+      profile_pic_url: this.state.profile_pic_url
     }
     axios(
       {
@@ -118,6 +122,8 @@ class App extends Component {
         console.log(response)
         window.localStorage.setItem('token', response.data.token)
         window.localStorage.setItem('user', JSON.stringify(response.data.user))
+        window.localStorage.setItem('userGoals', JSON.stringify(response.data.userGoals))
+        window.localStorage.setItem('userJournals', JSON.stringify(response.data.userJournals))
         this.setState({
           isLoggedIn: true,
           user: response.data.user,
