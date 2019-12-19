@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import '../App/App.css'
 
 
-const databaseUrl = process.env.NODE_ENV === 'production' ? process.env.BACKEND_APP_URL : 'http://localhost:3000'
+const databaseUrl = process.env.NODE_ENV === 'production' ? process.env.REACT_APP_BACKEND_APP_URL : 'http://localhost:3000'
 
 class Journals extends React.Component {
     state = {
@@ -29,7 +29,7 @@ class Journals extends React.Component {
           }
 
           axios({
-            url: `${databaseUrl}journals`,
+            url: `${databaseUrl}/journals`,
             method: 'POST',
             data: newJournal,
             headers: {
@@ -43,7 +43,7 @@ class Journals extends React.Component {
 
     getJournals = () => {
         axios({
-            url: `${databaseUrl}journals`,
+            url: `${databaseUrl}/journals`,
             method: "get"
         }).then(response => {
             console.log(response)

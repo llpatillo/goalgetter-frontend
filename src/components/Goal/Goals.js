@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import "../App/App.css";
 
-const databaseUrl = process.env.NODE_ENV === 'production' ? process.env.BACKEND_APP_URL : 'http://localhost:3000'
+const databaseUrl = process.env.NODE_ENV === 'production' ? process.env.REACT_APP_BACKEND_APP_URL : 'http://localhost:3000'
 
 class Goals extends React.Component {
   state = {
@@ -34,7 +34,7 @@ class Goals extends React.Component {
     };
 
     axios({
-      url: `${databaseUrl}goals`,
+      url: `${databaseUrl}/goals`,
       method: "POST",
       data: newGoal,
       headers: {
@@ -47,7 +47,7 @@ class Goals extends React.Component {
 
   getGoals = () => {
     axios({
-      url: `${databaseUrl}goals`,
+      url: `${databaseUrl}/goals`,
       method: "get"
     }).then(response => {
       this.setState({ goals: response.data.goals });
