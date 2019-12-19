@@ -20,7 +20,7 @@ class SignUpForm extends Component {
 
           <div>
             <label htmlFor='password'>Password</label>
-            <input type='text' name='password' onChange={this.props.handleInput} />
+            <input type='password' name='password' onChange={this.props.handleInput} />
           </div>
           <div>
             <label htmlFor='profile-picture'>Profile Pic</label>

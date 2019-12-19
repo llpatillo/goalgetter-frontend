@@ -56,6 +56,17 @@ class Goals extends React.Component {
         });
     };
 
+    deleteGoals = () => {
+        axios({
+            url: `${databaseUrl}/goals`,
+            method: "delete"
+        }).then(response => {
+            this.setState({ goals: response.data.goals });
+        });
+    };
+
+   
+
     render() {
         console.log(this.state);
          {
