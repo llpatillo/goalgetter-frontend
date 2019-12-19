@@ -29,7 +29,7 @@ class Journals extends React.Component {
           }
 
           axios({
-            url: `${databaseUrl}/journals`,
+            url: `${databaseUrl}journals`,
             method: 'POST',
             data: newJournal,
             headers: {
@@ -43,7 +43,7 @@ class Journals extends React.Component {
 
     getJournals = () => {
         axios({
-            url: `${databaseUrl}/journals`,
+            url: `${databaseUrl}journals`,
             method: "get"
         }).then(response => {
             console.log(response)

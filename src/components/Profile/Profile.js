@@ -19,7 +19,7 @@ class Profile extends Component {
   deleteGoal(id){
     
       axios({
-        url: `${databaseUrl}/goals/${id}`,
+        url: `${databaseUrl}goals/${id}`,
         method: "delete",
         headers: {
           Authorization: `Bearer ${localStorage.token}`

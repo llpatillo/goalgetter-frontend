@@ -18,7 +18,7 @@ import Home from '../Home/Home.js'
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const databaseUrl = 'https://goalgetter-app.herokuapp.com'
+const databaseUrl = process.env.NODE_ENV === 'production' ? process.env.BACKEND_APP_URL : 'http://localhost:3000'
 
 // const databaseUrl = process.env.NODE_ENV === 'production' ? process.env.BACKEND_APP_URL : 'http://localhost:3000'
 
@@ -41,7 +41,7 @@ class App extends Component {
         isLoggedIn: true,
         user
       })
-      axios.get(`${databaseUrl}/goals?userId=${user.id}`).then( res => {
+      axios.get(`${databaseUrl}goals?userId=${user.id}`).then( res => {
         this.setState({
           userGoals: res.data.goals
         })
@@ -99,11 +99,11 @@ class App extends Component {
       password: this.state.password,
       profile_pic_url: this.state.profile_pic_url
     }
-    console.log(`${databaseUrl}/users/signup`)
+    console.log(`${databaseUrl}users/signup`)
     axios(
       {
         method: 'post',
-        url: `${databaseUrl}/users/signup`,
+        url: `${databaseUrl}users/signup`,
         data: newUser
       })
       .then(response => {
@@ -125,7 +125,7 @@ class App extends Component {
     axios(
       {
         method: 'post',
-        url: `${databaseUrl}/users/login`,
+        url: `${databaseUrl}users/login`,
         data: loginUser
       })
       .then(response => {

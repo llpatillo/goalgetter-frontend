@@ -34,7 +34,7 @@ class Goals extends React.Component {
     };
 
     axios({
-      url: `${databaseUrl}/goals`,
+      url: `${databaseUrl}goals`,
       method: "POST",
       data: newGoal,
       headers: {
@@ -47,7 +47,7 @@ class Goals extends React.Component {
 
   getGoals = () => {
     axios({
-      url: `${databaseUrl}/goals`,
+      url: `${databaseUrl}goals`,
       method: "get"
     }).then(response => {
       this.setState({ goals: response.data.goals });
