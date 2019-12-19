@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import "../App/App.css";
 
-const databaseUrl = "http://localhost:3000";
+const databaseUrl = process.env.NODE_ENV === 'production' ? process.env.BACKEND_APP_URL : 'http://localhost:3000'
 
 class Goals extends React.Component {
   state = {

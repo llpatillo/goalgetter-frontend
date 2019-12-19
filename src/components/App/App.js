@@ -97,6 +97,7 @@ class App extends Component {
       password: this.state.password,
       profile_pic_url: this.state.profile_pic_url
     }
+    console.log(`${databaseUrl}/users/signup`)
     axios(
       {
         method: 'post',
@@ -145,6 +146,7 @@ class App extends Component {
 
   render() {
     console.log(this.state)
+    console.log(process.env)
     return (
       <div>
         <h1>Goal Getter</h1>
