@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 import "./Profile.css";
 import "../App/App.css";
 import Goal from "../Goal/Goals.js";
@@ -7,6 +8,8 @@ import Journal from "../Journal/Journals.js";
 // import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { Tabs, Tab, Container, Row, Col } from "react-bootstrap";
 
+const databaseUrl = "http://localhost:3000";
+
 class Profile extends Component {
   state = {
     toggle: false,
@@ -14,8 +17,20 @@ class Profile extends Component {
   };
 
   deleteGoal(id){
+    
+      axios({
+        url: `${databaseUrl}/goals/${id}`,
+        method: "delete",
+        headers: {
+          Authorization: `Bearer ${localStorage.token}`
+      }
+      }).then(response => {
+        this.setState({ goals: response.data.goals });
+      });
+    };
+  
 
-  }
+  
 
   render() {
     console.log('PROPS', this.props);
