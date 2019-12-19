@@ -4,18 +4,18 @@
 }
 
 .body {
-  margin: 3%;
+  margin: 1.5%;
   text-align: center;
  
 }
 
 /* for Profile.js */
 
-.goals-journal{
-  /* display: flex; */
-  justify-content: space-between;
+/* .goals-journal{
+  display: flex; 
+  justify-content: space-between; 
   
-}
+}  */
 .welcome{
   float: left;
   margin: 0;

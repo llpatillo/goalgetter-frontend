@@ -56,9 +56,11 @@ class Profile extends Component {
           //   </Tab>
           // </Tabs>
 
-          <Container>
-            <Row>
-              <Col>
+   
+
+          <div>
+            <Row noGutters={true}>
+              <Col xs={12} md={2}>
               <h4>Hi {this.props.user.name}!</h4>
               <br />
               <br />
@@ -66,18 +68,31 @@ class Profile extends Component {
               <h6>Completed Goals: 6 </h6>
               <h6>In progress: 9</h6>
               </Col>
-              <Col>
-              <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">
-            <Tab eventKey="home" title="Home">
+
+              <Col xs={12} md={10} >
+              <Tabs defaultActiveKey="goal" id="uncontrolled-tab-example">
+              <Tab eventKey="home" title="Goals">
               <Goal />
+              <div>
+                <div>
+                <div className={this.state.toggle ? "" : "hide"}></div>
+                <div className={this.state.toggle ? "hide" : ""}></div>
+               </div>
+            <div>
+              <ul>{userGoalEls}</ul>
+            </div>
+            <div>
+              <button onClick={e => {this.setState({ toggle: !this.state.toggle });}}>Toggle Goal</button>
+          </div>
+          </div>
             </Tab>
-            <Tab eventKey="profile" title="Profile">
+            <Tab eventKey="profile" title="Journals">
               <Journal />
             </Tab>
           </Tabs>
               </Col>
             </Row>
-          </Container>
+          </div>
 
         //   {/* <Tabs>
         //     <TabList>
@@ -92,7 +107,7 @@ class Profile extends Component {
         //     </div>
 
         //     <div className={this.state.toggle ? "hide" : ""}>
-        //       <ul>{userGoalEls}</ul><FontAwesomeIcon icon={faPlus} onClick={e => {this.setState({ toggle: !this.state.toggle });}} />
+        //       <ul>{userGoalEls}</ul>
         //     </div>
 
         //     <button onClick={e => {this.setState({ toggle: !this.state.toggle });}}>Toggle Goal</button>
