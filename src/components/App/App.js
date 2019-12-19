@@ -34,10 +34,16 @@ class App extends Component {
 
   componentDidMount() {
     if (localStorage.token) {
+      let user = JSON.parse(localStorage.user)
       this.setState({
         isLoggedIn: true,
-        user: JSON.parse(localStorage.user)
+        user
       })
+      axios.get(`${databaseUrl}/goals?userId=${user.id}`).then( res => {
+        this.setState({
+          userGoals: res.data.goals
+        })
+      }).catch(err => console.log('goalsError', err))
     } else {
       this.setState({
         isLoggedIn: false
@@ -123,8 +129,6 @@ class App extends Component {
         console.log(response)
         window.localStorage.setItem('token', response.data.token)
         window.localStorage.setItem('user', JSON.stringify(response.data.user))
-        window.localStorage.setItem('userGoals', JSON.stringify(response.data.userGoals))
-        window.localStorage.setItem('userJournals', JSON.stringify(response.data.userJournals))
         this.setState({
           isLoggedIn: true,
           user: response.data.user,

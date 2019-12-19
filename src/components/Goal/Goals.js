@@ -75,6 +75,7 @@ class Goals extends React.Component {
               type="text"
               name="category"
               onChange={e => this.handleInput(e)}
+              required
             />
             <br />
             Completion date
@@ -96,6 +97,7 @@ class Goals extends React.Component {
               type="text"
               name="goal"
               onChange={e => this.handleInput(e)}
+              required
             />
             <br />
             Status

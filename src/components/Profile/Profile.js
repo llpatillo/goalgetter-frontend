@@ -13,16 +13,21 @@ class Profile extends Component {
     toggleGoal: false
   };
 
+  deleteGoal(id){
+
+  }
+
   render() {
-    console.log(this.props);
+    console.log('PROPS', this.props);
     console.log(this.state);
-    let userGoalsFromLocalStorage = JSON.parse(window.localStorage.userGoals);
-    let userJournalsFromLocalStorage = JSON.parse(
-      window.localStorage.userJournals
-    );
+    let userGoalsFromLocalStorage = this.props.userGoals;
+    let userJournalsFromLocalStorage = []
+    // let userJournalsFromLocalStorage = JSON.parse(
+    //   window.localStorage.userJournals
+    // );
 
     const userGoalEls = userGoalsFromLocalStorage.map(goal => {
-      return <li key={goal.id}>{goal.goal}</li>;
+      return <li key={goal.id}>{goal.goal}<button onClick={() => this.deleteGoal(goal.id)}>DELETE</button></li>;
     });
 
     //     console.log(this.props.userJournals)
@@ -72,24 +77,38 @@ class Profile extends Component {
               <Col xs={12} md={10} >
               <Tabs defaultActiveKey="goal" id="uncontrolled-tab-example">
               <Tab eventKey="home" title="Goals">
+                <h6>My Goals</h6>
+
+              <div className={this.state.toggle ? "" : "hide"}>
               <Goal />
-              <div>
+              </div>
+                
                 <div>
-                <div className={this.state.toggle ? "" : "hide"}></div>
                 <div className={this.state.toggle ? "hide" : ""}></div>
+                <ul>{userGoalEls}</ul>
                </div>
             <div>
-              <ul>{userGoalEls}</ul>
-            </div>
+           
             <div>
+
               <button onClick={e => {this.setState({ toggle: !this.state.toggle });}}>Toggle Goal</button>
           </div>
           </div>
             </Tab>
+            
             <Tab eventKey="profile" title="Journals">
+              <h6>My Journals</h6>
+              
+              <div className={this.state.toggle ? "" : "hide"}>
               <Journal />
+              </div>
+
+              <div className={this.state.toggle ? "hide" : ""}>
+              <ul>{userJournalEls}</ul>
+              </div>
+
             </Tab>
-          </Tabs>
+            </Tabs>
               </Col>
             </Row>
           </div>
