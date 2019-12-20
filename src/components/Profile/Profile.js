@@ -7,6 +7,7 @@ import Journal from "../Journal/Journals.js";
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { Tabs, Tab, Container, Row, Col } from "react-bootstrap";
+var FA = require('react-fontawesome')
 
 const databaseUrl = process.env.NODE_ENV === 'production' ? process.env.REACT_APP_BACKEND_APP_URL : 'http://localhost:3000'
 
@@ -42,7 +43,7 @@ class Profile extends Component {
     // );
 
     const userGoalEls = userGoalsFromLocalStorage.map(goal => {
-      return <li key={goal.id}>{goal.goal}<button onClick={() => this.deleteGoal(goal.id)}>DELETE</button></li>;
+      return <li key={goal.id}>{goal.goal} <button onClick={() => this.deleteGoal(goal.id)}><FA name="minus" />, </button></li>;
     });
 
     //     console.log(this.props.userJournals)
@@ -118,9 +119,10 @@ class Profile extends Component {
               <Journal />
               </div>
 
-              <div className={this.state.toggle ? "hide" : ""}>
+              <div className={this.state.toggle ? "" : ""}>
               <ul>{userJournalEls}</ul>
               </div>
+              <button onClick={e => {this.setState({ toggle: !this.state.toggle });}}>Toggle Journal</button>
 
             </Tab>
             </Tabs>

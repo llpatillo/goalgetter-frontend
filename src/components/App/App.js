@@ -80,7 +80,7 @@ class App extends Component {
       isLoggedIn: false,
       user: null
     })
-    this.props.history.push('/login')
+    this.props.history.push('/')
   }
 
   handleInput = (e) => {
