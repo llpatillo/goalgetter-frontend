@@ -1,30 +1,32 @@
 import React, { Component } from 'react'
 
 import './SignUpForm.css'
+import { Form, Button } from "react-bootstrap";
 
 class SignUpForm extends Component {
   render () {
     return (
+   
       <div>
         <h2>Sign Up</h2>
 
         <form className="signup-form">
         <div>
-            <label htmlFor='name'>Name</label>
-            <input type='text' name='name' onChange={this.props.handleInput} />
+            
+            <input type='text' name='name' placeholder="Enter name" onChange={this.props.handleInput} />
           </div>
           <div>
-            <label htmlFor='email'>Email</label>
-            <input type='text' name='email' onChange={this.props.handleInput} />
+            
+            <input type='text' name='email' placeholder="Enter email" onChange={this.props.handleInput} />
           </div>
 
           <div>
-            <label htmlFor='password'>Password</label>
-            <input type='password' name='password' onChange={this.props.handleInput} />
+            
+            <input type='password' name='password' placeholder="Create a password" onChange={this.props.handleInput} />
           </div>
           <div>
-            <label htmlFor='profile-picture'>Profile Pic</label>
-            <input type='text' name='profile-picture' onChange={this.props.handleInput} />
+           
+            <input type='text' name='profile-picture' placeholder="Upload a profile pic" onChange={this.props.handleInput} />
           </div>
           <input value='Submit' type='submit' onClick={this.props.handleSignUp} />
         </form>
@@ -34,3 +36,5 @@ class SignUpForm extends Component {
 }
 
 export default SignUpForm
+
+

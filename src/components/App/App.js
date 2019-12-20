@@ -148,8 +148,15 @@ class App extends Component {
     console.log(this.state)
     console.log(process.env)
     return (
-      <div>
-        <h1>Goal Getter</h1>
+      <div 
+      // style = {{
+      //   backgroundColor: "purple",
+      //   width: "100%",
+      //   height: "100vh"
+
+      // }}
+      >
+        <h1>GOAL<span>GETTER</span></h1>
 
         <NavBar isLoggedIn={this.state.isLoggedIn} user={this.state.user} />
         <div className='body'>

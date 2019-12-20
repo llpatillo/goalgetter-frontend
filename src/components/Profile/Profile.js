@@ -43,7 +43,7 @@ class Profile extends Component {
     // );
 
     const userGoalEls = userGoalsFromLocalStorage.map(goal => {
-      return <li key={goal.id}>{goal.goal} <button onClick={() => this.deleteGoal(goal.id)}><FA name="minus" />, </button></li>;
+      return <li key={goal.id}>{goal.goal}<button className="w3-circle"  onClick={() => this.deleteGoal(goal.id)}> - </button></li>;
     });
 
     //     console.log(this.props.userJournals)
@@ -85,9 +85,9 @@ class Profile extends Component {
               <h4>Hi {this.props.user.name}!</h4>
               <br />
               <br />
-              <h5> Stats</h5>
-              <h6>Completed Goals: 6 </h6>
-              <h6>In progress: 9</h6>
+              <img src="../images/you-got-this.jpg" alt=""/> 
+              {/* <h6>Completed Goals: 6 </h6>
+              <h6>In progress: 9</h6> */}
               </Col>
 
               <Col xs={12} md={10} >
@@ -97,7 +97,8 @@ class Profile extends Component {
 
               <div className={this.state.toggle ? "" : "hide"}>
               <Goal />
-              </div>
+  
+              </div> 
                 
                 <div>
                 <div className={this.state.toggle ? "hide" : ""}></div>
@@ -107,7 +108,7 @@ class Profile extends Component {
            
             <div>
 
-              <button onClick={e => {this.setState({ toggle: !this.state.toggle });}}>Toggle Goal</button>
+              <button onClick={e => {this.setState({ toggle: !this.state.toggle });}}>Add a Goal</button>
           </div>
           </div>
             </Tab>

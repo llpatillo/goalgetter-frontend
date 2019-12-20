@@ -1,21 +1,72 @@
+html{
+  height: 100vh;
+  background:radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,233,204,1) 100%);
+}
+
 *{
   margin: 0;
   padding: 0;
+
 }
 
 .body {
   margin: 1.5%;
   text-align: center;
- 
+}
+
+/* for App.js */
+h1 {
+  color:#128a66;
+  font-size: 10px;
+  font-family: 'Work Sans', sans-serif;
+}
+span {
+  color:#FA8072; 
+  
 }
 
 /* for Profile.js */
+/* form {
+  border
+} */
 
-/* .goals-journal{
-  display: flex; 
-  justify-content: space-between; 
-  
-}  */
+input[type=submit] {
+  width: 20%;
+} 
+
+input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid gray; 
+  border-radius: 4px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+
+}
+input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid gray; 
+  border-radius: 4px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+input[type=email] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid gray; 
+  border-radius: 4px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+
+
 .welcome{
   float: left;
   margin: 0;
@@ -29,66 +80,10 @@
   
 }
 
-.react-tabs {
-  -webkit-tap-highlight-color: transparent;
-  
+.w3-circle {
+  background-color: black;
+  color: white;
 }
-
-.react-tabs__tab-list {
-  border-bottom: 1px solid #aaa;
- 
-  color: black;
-  margin: 0 0 10px;
-  padding: 0;
-}
-
-.react-tabs__tab {
-  display: inline-block;
-  border: 1px solid transparent;
-  border-bottom: none;
-  bottom: -1px;
-  position: relative;
-  list-style: none;
-  padding: 6px 12px;
-  cursor: pointer;
-}
-
-.react-tabs__tab--selected {
-  background: #fff;
-  border-color: #aaa;
-  color: purple;
-  border-radius: 5px 5px 0 0;
-}
-
-.react-tabs__tab--disabled {
-  color: GrayText;
-  cursor: default;
-}
-
-.react-tabs__tab:focus {
-  box-shadow: 0 0 5px hsl(208, 99%, 50%);
-  border-color: hsl(208, 99%, 50%);
-  outline: none;
-}
-
-.react-tabs__tab:focus:after {
-  content: "";
-  position: absolute;
-  height: 5px;
-  left: -4px;
-  right: -4px;
-  bottom: -5px;
-  background: #fff;
-}
-
-.react-tabs__tab-panel {
-  display: none;
-}
-
-.react-tabs__tab-panel--selected {
-  display: block;
-}
-
 
  
 /* for Goals.js */
@@ -100,12 +95,12 @@
 }
 
 /* for Journals.js */
-.journal-div{
+/* .journal-div{
   width: 33%;
   float:right;
   margin: 0;
   padding: 0;
-}
+} */
 form {
   margin: 0;
 }

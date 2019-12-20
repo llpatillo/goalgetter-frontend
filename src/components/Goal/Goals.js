@@ -72,7 +72,7 @@ class Goals extends React.Component {
             <br />
             Completion date
             <br />
-            {/* <input type="text" name="completion_date" onChange={e => this.handleInput(e)}/><br/> */}
+           
             <div className="form-group">
               <input
                 type="date"
@@ -100,7 +100,7 @@ class Goals extends React.Component {
               onChange={e => this.handleInput(e)}
             />
             <br />
-            <input type="submit" value="Create a new Goal" />
+            <input type="submit" value="Add" />
           </form>
         </div>
       );
